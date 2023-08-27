@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Favorites</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="main.js" defer></script>
+  </head>
+  <body>
+
+    <main id="app">
+      <header>
+        <img src="assets/Gitfav.svg" alt="GithubFav Logo">
+
+        <div class="search">
+          <label class="sr-only" for="search">Type Username for Favorite</label>
+          <input type="search" name="search" id="search" placeholder="Type Username for Favorite">
+          <button><img src="assets/star.svg" alt="star"> Favorite</button>
+        </div>
+      </header>
+
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Repositories</th>
+            <th>Followers</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>
+              <img src="https://github.com/clemilsonazevedo.png" alt="clemilson Azevedo user of github image">
+              <a href="https://github.com/clemilsonazevedo">
+                <p>Clemilson Azevedo</p>
+                <span>/ClemilsonAzevedo</span>
+              </a>
+            </td>
+
+            <td>
+              123.344
+            </td>
+
+            <td>
+              2.988.372
+            </td>
+
+            <td>
+              <button>Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+  </body>
+</html>
