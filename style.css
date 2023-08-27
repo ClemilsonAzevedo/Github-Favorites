@@ -1,3 +1,21 @@
+:root{
+  --bg-color: #000;
+  --table-row-even: #4A808C;
+  --table-row-odd: #092d3880;
+  --primary-color: #092D38;
+  --input-search-color: #06181C;
+  --secondary-color:#065E7C;
+  --tertiary-color: #F75A68;
+  --text-color: #E1E1E6;
+
+  font-size: 62.5%;
+}
+
 *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 2rem;
   font-family: 'Roboto', sans-serif;
 }
+
