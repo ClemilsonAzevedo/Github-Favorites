@@ -103,11 +103,6 @@ header .search>button:hover {
   color: var(--secondary-color);
 }
 
-.radius{
-  border-radius: 1.2rem;
-  border: 1px solid var(--table-row-even);
-}
-
 table {
   width: 1120px;
   max-height: 688px;
