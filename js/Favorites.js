@@ -1,7 +1,4 @@
-// Import Github Api and Keys
 import { GithubUser } from "./GithubUser.js"
-
-// Export Class Favorites
 export class Favorites {
   constructor(root) {
     this.root = document.querySelector(root)
@@ -9,25 +6,25 @@ export class Favorites {
   }
 
   load() {
-    this.entries = JSON.parse(localStorage.getItem("@My-Favorites")) || []
+    this.entries = JSON.parse(localStorage.getItem("@github-favorites:")) || []
   }
 
   save() {
-    localStorage.setItem("@My-Favorites")
+    localStorage.setItem("@github-favorites:", JSON.stringify(this.entries))
   }
 
   async add(username) {
     try {
-      const userExists = this.entries.find((entry) => entry.login === username)
+      const userExists = this.entries.find(entry => entry.login === username)
 
       if (userExists) {
-        throw new Error("User Exists")
+        throw new Error("User exist")
       }
 
       const user = await GithubUser.search(username)
 
       if (user.login === undefined) {
-        throw new Error("User Not Found!")
+        throw new Error("User not found!")
       }
 
       this.entries = [user, ...this.entries]
@@ -39,13 +36,12 @@ export class Favorites {
   }
 
   delete(user) {
-    this.entries = this.entries.filter((entry) => entry.login !== user.login)
+    this.entries = this.entries.filter(entry => entry.login !== user.login)
     this.update()
     this.save()
   }
 }
-
-export class MyFavorites extends Favorites {
+export class FavoritesView extends Favorites {
   constructor(root) {
     super(root)
 
@@ -57,68 +53,71 @@ export class MyFavorites extends Favorites {
 
   onAdd() {
     const addButton = this.root.querySelector(".search button")
-
-    addButton.onClick = () => {
-      const { value } = this.roor.querySelector(".search input")
+    addButton.onclick = () => {
+      const { value } = this.root.querySelector(".search input")
 
       this.add(value)
     }
   }
 
   update() {
-    this.removeTrs()
+    this.removeAllTr()
 
-    this.entries.array.forEach((user) => {
+    this.entries.forEach((user) => {
       const row = this.createRow()
 
       row.querySelector(
         ".user img"
       ).src = `https://github.com/${user.login}.png`
-      row.querySelector(".user p").textContent = `/${user.name}`
-      row.querySelector(".user span").textContent = `/${user.login}`
-      row.querySelector(".user img").alt = `Perfil Image of ${user.name}`
+      row.querySelector(".user p").textContent = user.name
+      row.querySelector(".user span").textContent = `@${user.login}`
+      row.querySelector(".user img").alt = `imagem de ${user.name}`
       row.querySelector(".user a").href = user.html_url
       row.querySelector(".repositories").textContent = user.public_repos
       row.querySelector(".followers").textContent = user.followers
 
-      row.querySelector(".removeUser").onClick = () => {
-        const deleteUser = confirm("Confirm this Delete?")
+      row.querySelector(".remove").onclick = () => {
+        const isOk = confirm("Confirm this delete?")
 
-        if (deleteUser) {
+        if (isOk) {
           this.delete(user)
         }
       }
+
       this.tbody.append(row)
     })
   }
 
   createRow() {
-    const tableRow = document.createElement("tr")
+    const tr = document.createElement("tr")
 
-    true.innerHTML = `
-        <td class='user'>
-          <img
-            src="https://github.com/clemilsonazevedo.png"
-            alt="clemilson Azevedo user of github image"
-          />
-          <a href="https://github.com/clemilsonazevedo">
-            <p>Clemilson Azevedo</p>
-            <span>/ClemilsonAzevedo</span>
-          </a>
-        </td>
-        <td class="Repositories">123.344</td>
-        <td class="Followers">2.988.372</td>
-        <td>
-          <button class="removeUser">Remove</button>
-        </td>
+    tr.innerHTML = `
+          <td class="user">
+              <img
+                src="https://github.com/clemilsonazevedo.png"
+                alt="foto do clemilson azevedo"
+              />
+            
+              <a href="https://github.com/clemilsonazevedo" target="_blank">
+                <p>Clemilson de Azevedo</p>
+                <span class='name'>Clemilsonazevedo</span>
+              </a>
+            </td>
+            
+            <td class="repositories">3829</td>
+            
+            <td class="followers">8837782</td>
+            <td>
+              <button class='remove'>Remove</button>
+            </td>
     `
 
     return tr
   }
 
-  removeTrs(){
-    this.tbody.querySelector('tr').forEach(tr => {
-      tr.romove()
+  removeAllTr() {
+    this.tbody.querySelectorAll("tr").forEach((tr) => {
+      tr.remove()
     })
   }
 }
