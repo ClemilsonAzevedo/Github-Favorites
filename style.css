@@ -1,21 +1,102 @@
-:root{
+:root {
   --bg-color: #000;
   --table-row-even: #4A808C;
   --table-row-odd: #092d3880;
   --primary-color: #092D38;
   --input-search-color: #06181C;
-  --secondary-color:#065E7C;
+  --secondary-color: #065E7C;
   --tertiary-color: #F75A68;
   --text-color: #E1E1E6;
+  --any-color: #fff;
 
   font-size: 62.5%;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 2rem;
+
   font-family: 'Roboto', sans-serif;
 }
+
+
+.sr-only {
+  position: absolute;
+
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+
+  white-space: nowrap;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+
+body {
+  background: #000;
+  color: var(--text-color);
+
+  display: grid;
+  justify-content: center;
+
+  margin-top: 10rem;
+}
+
+
+#app {
+  display: flex;
+  flex-direction: column;
+  gap: 8.5rem;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .search #input-search {
+  width: 46.2rem;
+  border-radius: .5rem;
+  border: none;
+
+  padding: 1.6rem;
+
+  background-color: var(--input-search-color);
+  color: var(--text-color);
+}
+
+header .search #input-search:focus {
+  outline: 1px solid var(--secondary-color);
+}
+
+header .search #input-search::placeholder {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+}
+
+header .search>button {
+  padding: 1.2rem 3.2rem;
+  border-radius: .5rem;
+  border: none;
+  width: 17rem;
+  background: var(--secondary-color);
+  color: var(--text-color);
+  cursor: pointer;
+  fill: var(--any-color);
+  transition: fill .4s;
+  transition: background .4s;
+}
+
+header .search>button:hover {
+  background-color: var(--any-color);
+  fill: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
 
