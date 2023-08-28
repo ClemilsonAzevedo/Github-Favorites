@@ -1,6 +1,6 @@
 :root {
   --bg-color: #000;
-  --table-row-even: #4A808C;
+  --table-row-even: #4a808c80;
   --table-row-odd: #092d3880;
   --primary-color: #092D38;
   --input-search-color: #06181C;
@@ -104,7 +104,7 @@ header .search>button:hover {
 }
 
 
-table{
+table {
   width: 1120px;
   max-height: 688px;
   border-radius: 1.2rem;
@@ -113,56 +113,69 @@ table{
   position: relative;
 }
 
-table tr{
+table tr {
   text-align: left;
 }
 
-table thead{
+
+table thead {
   font-weight: 700;
   line-height: 3.2rem;
+
+  border-top-left-radius: 1.2rem;
+  border-top-right-radius: 1.2rem;
 }
 
-table thead tr{
+table thead tr {
   background-color: var(--primary-color);
 }
 
-table thead tr:first-child{
+table thead tr:first-child {
   width: 50.4rem;
 }
 
-table thead tr th{
+table thead tr th {
   padding: 1.6rem 2.4rem 1.6rem 4.0rem;
 }
 
-.rolable{
-  max-height:500px ;
-  overflow-y: auto;
+table tbody tr:nth-child(even) {
+  background-color: var(--table-row-even);
 }
 
-table tbody tr td{
+table tbody tr:nth-child(odd) {
+  background-color: var(--table-row-odd);
+}
+
+table tbody tr td {
   padding: 2.4rem 4rem;
   text-align: left;
 }
 
-table tbody tr td:first-child{
+table tbody tr td:first-child {
   display: flex;
   gap: .8rem;
   align-items: center;
 }
 
-table tbody tr td:first-child a{
+table tbody tr td:first-child a {
   color: var(--text-color);
   text-decoration: none;
   line-height: 3.2rem;
 }
 
-table tbody tr td:first-child a span{
+table tbody tr td:first-child a span {
   font-weight: 400;
 }
 
-
-table tbody td img{
+table tbody td img {
   width: 5.6rem;
   height: 5.6rem;
   border-radius: 50%;
+}
+
+table tbody td button{
+  color: var(--tertiary-color);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
