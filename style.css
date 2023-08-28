@@ -103,14 +103,15 @@ header .search>button:hover {
   color: var(--secondary-color);
 }
 
+.radius{
+  border-radius: 1.2rem;
+  border: 1px solid var(--table-row-even);
+}
 
 table {
   width: 1120px;
   max-height: 688px;
-  border-radius: 1.2rem;
-  border: 1px solid var(--table-row-even);
   border-collapse: collapse;
-  position: relative;
 }
 
 table tr {
@@ -121,13 +122,11 @@ table tr {
 table thead {
   font-weight: 700;
   line-height: 3.2rem;
-
-  border-top-left-radius: 1.2rem;
-  border-top-right-radius: 1.2rem;
 }
 
 table thead tr {
   background-color: var(--primary-color);
+
 }
 
 table thead tr:first-child {
@@ -173,7 +172,7 @@ table tbody td img {
   border-radius: 50%;
 }
 
-table tbody td button{
+table tbody td button {
   color: var(--tertiary-color);
   background-color: transparent;
   border: none;
