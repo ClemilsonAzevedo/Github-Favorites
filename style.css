@@ -54,6 +54,10 @@ body {
 
 
 header {
+  position: sticky;
+  top: 0;
+  background-color: #000;
+  padding-bottom: 1rem;
   display: flex;
   justify-content: space-between;
 }
@@ -100,3 +104,65 @@ header .search>button:hover {
 }
 
 
+table{
+  width: 1120px;
+  max-height: 688px;
+  border-radius: 1.2rem;
+  border: 1px solid var(--table-row-even);
+  border-collapse: collapse;
+  position: relative;
+}
+
+table tr{
+  text-align: left;
+}
+
+table thead{
+  font-weight: 700;
+  line-height: 3.2rem;
+}
+
+table thead tr{
+  background-color: var(--primary-color);
+}
+
+table thead tr:first-child{
+  width: 50.4rem;
+}
+
+table thead tr th{
+  padding: 1.6rem 2.4rem 1.6rem 4.0rem;
+}
+
+.rolable{
+  max-height:500px ;
+  overflow-y: auto;
+}
+
+table tbody tr td{
+  padding: 2.4rem 4rem;
+  text-align: left;
+}
+
+table tbody tr td:first-child{
+  display: flex;
+  gap: .8rem;
+  align-items: center;
+}
+
+table tbody tr td:first-child a{
+  color: var(--text-color);
+  text-decoration: none;
+  line-height: 3.2rem;
+}
+
+table tbody tr td:first-child a span{
+  font-weight: 400;
+}
+
+
+table tbody td img{
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 50%;
+}
